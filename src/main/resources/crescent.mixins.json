@@ -3,7 +3,7 @@
 	"package": "net.celeste.crescent.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"CrescentMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
