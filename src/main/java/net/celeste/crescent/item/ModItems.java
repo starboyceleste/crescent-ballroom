@@ -11,9 +11,11 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static final Item EXAMPLE = registerItem("example",
+    public static final Item BLUR_BM7B = registerItem("Blur BM7B",
             new Item(new FabricItemSettings()));
-    public static final Item EXAMPLE_B = registerItem("example",
+    public static final Item BLUR_BM57 = registerItem("Blur BM57",
+            new Item(new FabricItemSettings()));
+    public static final Item BLUR_BM58 = registerItem("Blur BM58",
             new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
@@ -21,8 +23,9 @@ public class ModItems {
     }
 
     public static void addItemsToItemGroup() {
-        addToItemGroup(ItemGroups.BUILDING_BLOCKS, EXAMPLE);
-        addToItemGroup(ItemGroups.BUILDING_BLOCKS, EXAMPLE_B);
+        addToItemGroup(ModItemGroup.STAGE, BLUR_BM7B);
+        addToItemGroup(ModItemGroup.STAGE, BLUR_BM57);
+        addToItemGroup(ModItemGroup.STAGE, BLUR_BM58);
     }
 
     private static void addToItemGroup(ItemGroup group, Item item) {

@@ -9,11 +9,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
-    public static ItemGroup CRESCENT;
+    public static ItemGroup STAGE;
 
     public static void registerItemGroups() {
-        CRESCENT = FabricItemGroup.builder(new Identifier(Crescent.MOD_ID, "crescent"))
-                .displayName(Text.literal("Crescent"))
-                .icon(() -> new ItemStack(Items.ENDER_EYE)).build();
+        STAGE = FabricItemGroup.builder(new Identifier(Crescent.MOD_ID, "stage"))
+                .displayName(Text.literal("Stage"))
+                .icon(() -> new ItemStack(Items.SEA_LANTERN)).build();
     }
 }
