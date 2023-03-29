@@ -5,10 +5,10 @@
 	"name": "Celeste's Crescent Ballroom",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"starboyceleste"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://twitter.com/starboyceleste",
 		"sources": "https://github.com/starboyceleste/crescent-ballroom"
 	},
 	"license": "CC0-1.0",
