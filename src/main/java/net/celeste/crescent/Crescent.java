@@ -1,5 +1,6 @@
 package net.celeste.crescent;
 
+import net.celeste.crescent.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ public class Crescent implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Initialized.");
+		ModItems.registerModItems();
 	}
 }
