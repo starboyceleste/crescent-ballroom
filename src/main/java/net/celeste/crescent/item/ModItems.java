@@ -13,6 +13,8 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item EXAMPLE = registerItem("example",
             new Item(new FabricItemSettings()));
+    public static final Item EXAMPLE_B = registerItem("example",
+            new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Crescent.MOD_ID, name), item);
@@ -20,6 +22,7 @@ public class ModItems {
 
     public static void addItemsToItemGroup() {
         addToItemGroup(ItemGroups.BUILDING_BLOCKS, EXAMPLE);
+        addToItemGroup(ItemGroups.BUILDING_BLOCKS, EXAMPLE_B);
     }
 
     private static void addToItemGroup(ItemGroup group, Item item) {
@@ -28,5 +31,7 @@ public class ModItems {
 
     public static void registerModItems() {
         Crescent.LOGGER.info("Registering items for " + Crescent.MOD_ID);
+
+        addItemsToItemGroup();
     }
 }

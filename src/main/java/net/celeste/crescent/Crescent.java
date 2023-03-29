@@ -1,5 +1,6 @@
 package net.celeste.crescent;
 
+import net.celeste.crescent.item.ModItemGroup;
 import net.celeste.crescent.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,6 +14,7 @@ public class Crescent implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initialized.");
+		ModItemGroup.registerItemGroups();
 		ModItems.registerModItems();
 	}
 }
