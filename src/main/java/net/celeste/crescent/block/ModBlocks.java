@@ -15,13 +15,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
-    public static final Block TRIPOD_MICROPHONE_BOOM_STAND = registerBlock("tripod_microphone_boom_stand",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.STAGE);
-    public static final Block TRIPOD_MICROPHONE_STAND = registerBlock("tripod_microphone_stand",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.STAGE);
-    public static final Block ROUND_MICROPHONE_BOOM_STAND = registerBlock("round_microphone_boom_stand",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.STAGE);
-    public static final Block ROUND_MICROPHONE_STAND = registerBlock("round_microphone_stand",
+    public static final Block MICROPHONE_STAND_STAGE_TRIPOD_BOOM = registerBlock("microphone_stand_stage_tripod_boom",
             new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f).requiresTool()), ModItemGroup.STAGE);
     private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);
