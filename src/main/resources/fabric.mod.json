@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "crescent",
+	"version": "${version}",
+	"name": "Celeste's Crescent Ballroom",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/starboyceleste/crescent-ballroom"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/crescent/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.celeste.crescent.Crescent"
+		],
+		"client": [
+			"net.celeste.crescent.CrescentClient"
+		],
+		"fabric-datagen": [
+			"net.celeste.crescent.CrescentDataGenerator"
+		]
+	},
+	"mixins": [
+		"crescent.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.18",
+		"minecraft": "~1.19.3",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
