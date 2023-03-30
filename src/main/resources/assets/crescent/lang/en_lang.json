@@ -1,6 +1,3 @@
 {
-  "item.crescent.round_microphone_boom_stand": "Round Microphone Stand with Boom",
-  "item.crescent.round_microphone_stand": "Round Microphone Stand",
-  "item.crescent.tripod_microphone_boom_stand": "Tripod Microphone Stand with Boom",
-  "item.crescent.tripod_microphone_stand": "Tripod Microphone Stand"
+  "block.crescent.microphone_stand_stage_tripod_boom_0": "Stage Tripod Microphone Stand with Boom"
 }
