@@ -1,4 +1,0 @@
-newmtl microphone_stand_stage
-map_Kd crescent:block/microphone_stand_stage
-newmtl microphone
-map_Kd crescent:block/microphone
