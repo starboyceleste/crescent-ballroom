@@ -11,30 +11,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class CrescentItems {
-    public static final CrescentItem BLUR_BM7B = register("blur_bm7b",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final CrescentItem BLUR_BM57 = register("blur_bm57",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final CrescentItem BLUR_BM58 = register("blur_bm58",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final CrescentItem GLUE_YETI = register("glue_yeti",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final Item PAPERX_CUBECAST = register("paperx_cubecast",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final Item TRUMANN_M_196 = register("trumann_m_196",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final Item TRUMANN_U_98 = register("trumann_u_98",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
-    public static final Item VOXEL_VOICE_VE20 = register("voxel_voice_ve20",
-            new CrescentItem(new FabricItemSettings()),
-            CrescentItemGroups.CRESCENT);
+    public static final CrescentItem BLUR_BM7B = register("blur_bm7b", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem BLUR_BM57 = register("blur_bm57", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem BLUR_BM58 = register("blur_bm58", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem GLUE_YETI = register("glue_yeti", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem PAPERX_CUBECAST = register("paperx_cubecast", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem TRUMANN_M_196 = register("trumann_m_196", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem TRUMANN_U_98 = register("trumann_u_98", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
+    public static final CrescentItem VOXEL_VOICE_VE20 = register("voxel_voice_ve20", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
 
     private static CrescentItem register(String name, CrescentItem item, ItemGroup group) {
         if (group != null){
