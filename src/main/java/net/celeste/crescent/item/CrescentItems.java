@@ -1,15 +1,12 @@
 package net.celeste.crescent.item;
 
 import net.celeste.crescent.Crescent;
-import net.celeste.crescent.registry.CrescentItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
-import java.util.List;
 
 public class CrescentItems {
     public static final CrescentItem BLUR_BM7B = register("blur_bm7b", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
