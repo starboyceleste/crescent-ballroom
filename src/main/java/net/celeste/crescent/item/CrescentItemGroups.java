@@ -14,9 +14,9 @@ public class CrescentItemGroups {
             .displayName(Text.translatable("itemgroup.crescent"))
             .icon(() -> new ItemStack(CrescentItems.BLUR_BM7B))
             .entries((enabledFeatures, entries, operatorEnabled) -> {
-                entries.add(CrescentItems.BLUR_BM7B);
                 entries.add(CrescentItems.BLUR_BM57);
                 entries.add(CrescentItems.BLUR_BM58);
+                entries.add(CrescentItems.BLUR_BM7B);
                 entries.add(CrescentItems.GLUE_YETI);
                 entries.add(CrescentItems.PAPERX_CUBECAST);
                 entries.add(CrescentItems.TRUMANN_M_196);
@@ -24,4 +24,6 @@ public class CrescentItemGroups {
                 entries.add(CrescentItems.VOXEL_VOICE_VE20);
             })
             .build();
+
+    public static void CrescentItemGroups(){}
 }

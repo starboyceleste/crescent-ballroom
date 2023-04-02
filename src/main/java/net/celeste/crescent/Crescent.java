@@ -1,10 +1,12 @@
 package net.celeste.crescent;
 
-import net.celeste.crescent.block.CrescentBlocks;
-import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static net.celeste.crescent.block.CrescentBlocks.CrescentBlocks;
+import static net.celeste.crescent.item.CrescentItemGroups.CrescentItemGroups;
+import static net.celeste.crescent.item.CrescentItems.CrescentItems;
 
 public class Crescent implements ModInitializer {
 	public static final String MOD_ID = "crescent";
@@ -13,8 +15,9 @@ public class Crescent implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		CrescentBlocks.init();
-		CrescentItems.init();
 		LOGGER.info("Initialized mod.");
+		CrescentItems();
+		CrescentBlocks();
+		CrescentItemGroups();
 	}
 }
