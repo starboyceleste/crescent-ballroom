@@ -9,6 +9,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
+
 public class CrescentItems {
     public static final CrescentItem BLUR_BM7B = register("blur_bm7b", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
     public static final CrescentItem BLUR_BM57 = register("blur_bm57", new CrescentItem(new FabricItemSettings()), CrescentItemGroups.CRESCENT);
