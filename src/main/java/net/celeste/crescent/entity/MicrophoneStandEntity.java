@@ -18,7 +18,7 @@ public class MicrophoneStandEntity extends LivingEntity {
     private static final TrackedData<String> TYPE = DataTracker.registerData(MicrophoneStandEntity.class, TrackedDataHandlerRegistry.STRING);
     private static final List<String> TYPES = List.of("stage_tripod", "stage_round", "boom_tripod", "boom_round", "desk_tripod", "desk_round", "overhead", "studio");
     private static final TrackedData<String> MICROPHONE = DataTracker.registerData(MicrophoneStandEntity.class, TrackedDataHandlerRegistry.STRING);
-    private static final List<Item> MICROPHONES = List.of(CrescentItems.BLUR_BM7B, CrescentItems.BLUR_BM57, CrescentItems.BLUR_BM58, CrescentItems.GLUE_YETI, CrescentItems.PAPERX_CUBECAST, CrescentItems.TRUMANN_U_98, CrescentItems.TRUMANN_M_196, CrescentItems.VOXEL_VOICE_VE20);
+    private static final List<Item> MICROPHONES = List.of(CrescentItems.BLUR_BM7B_MICROPHONE, CrescentItems.BLUR_BM57_MICROPHONE, CrescentItems.BLUR_BM58_MICROPHONE, CrescentItems.GLUE_YETI_MICROPHONE, CrescentItems.PAPERX_CUBECAST_MICROPHONE, CrescentItems.TRUMANN_U_98_MICROPHONE, CrescentItems.TRUMANN_M_196_MICROPHONE, CrescentItems.VOXEL_VOICE_VE20_MICROPHONE);
 
     protected MicrophoneStandEntity(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
