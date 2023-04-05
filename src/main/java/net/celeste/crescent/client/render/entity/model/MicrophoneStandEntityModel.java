@@ -35,7 +35,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart glue_yeti_body;
 	private final ModelPart glue_yeti_buttons;
 	private final ModelPart glue_yeti_logo;
-	private final ModelPart GLUE_YETI_MISC;
+	private final ModelPart GLUE_YETI_CABLE;
 	private final ModelPart BLUR_BM7B;
 	private final ModelPart BLUR_BM7B_MOUNT;
 	private final ModelPart blur_bm7b_bracket;
@@ -47,13 +47,13 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart blur_bm57_bracket;
 	private final ModelPart blur_bm57_bracket_r1;
 	private final ModelPart blur_bm57_body;
-	private final ModelPart BLUR_BM57_MISC;
+	private final ModelPart BLUR_BM57_CABLE;
 	private final ModelPart BLUR_BM58;
 	private final ModelPart BLUR_BM58_MOUNT;
 	private final ModelPart blur_bm58_bracket;
 	private final ModelPart blur_bm58_bracket_r1;
 	private final ModelPart blur_bm58_body;
-	private final ModelPart BLUR_BM58_MISC;
+	private final ModelPart BLUR_BM58_CABLE;
 	public MicrophoneStandEntityModel(ModelPart root) {
 		this.POLE = root.getChild("POLE");
 			this.pole_main = this.POLE.getChild("pole_main");
@@ -87,7 +87,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 						this.glue_yeti_body = this.glue_yeti_bracket.getChild("glue_yeti_body");
 					this.glue_yeti_buttons = this.glue_yeti_body.getChild("glue_yeti_buttons");
 						this.glue_yeti_logo = this.glue_yeti_buttons.getChild("glue_yeti_logo");
-				this.GLUE_YETI_MISC = this.GLUE_YETI.getChild("GLUE_YETI_MISC");
+				this.GLUE_YETI_CABLE = this.GLUE_YETI.getChild("GLUE_YETI_CABLE");
 
 			this.BLUR_BM7B = this.BOOM.getChild("BLUR_BM7B");
 				this.BLUR_BM7B_MOUNT = this.BLUR_BM7B.getChild("BLUR_BM7B_MOUNT");
@@ -101,14 +101,14 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 					this.blur_bm57_bracket = this.BLUR_BM57_MOUNT.getChild("blur_bm57_bracket");
 						this.blur_bm57_bracket_r1 = this.blur_bm57_bracket.getChild("blur_bm57_bracket_r1"); // Unresolved parent (bracket -> bracket_r1) because this part needs to be rotated 45 degrees. Results in a nicer rotation for the BM57 body.
 							this.blur_bm57_body = this.blur_bm57_bracket.getChild("blur_bm57_body");
-				this.BLUR_BM57_MISC = this.BLUR_BM57.getChild("BLUR_BM57_MISC");
+				this.BLUR_BM57_CABLE = this.BLUR_BM57.getChild("BLUR_BM57_CABLE");
 
 			this.BLUR_BM58 = this.BOOM.getChild("BLUR_BM58");
 				this.BLUR_BM58_MOUNT = this.BLUR_BM58.getChild("BLUR_BM58_MOUNT");
 					this.blur_bm58_bracket = this.BLUR_BM58_MOUNT.getChild("blur_bm58_bracket");
 						this.blur_bm58_bracket_r1 = this.blur_bm58_bracket.getChild("blur_bm58_bracket_r1");  // See BM57 bracket part.
 							this.blur_bm58_body = this.blur_bm58_bracket.getChild("blur_bm58_body");
-				this.BLUR_BM58_MISC = this.BLUR_BM58.getChild("BLUR_BM58_MISC");
+				this.BLUR_BM58_CABLE = this.BLUR_BM58.getChild("BLUR_BM58_CABLE");
 
 		this.TRIPOD.visible = true;
 		this.ROUND.visible = false;
@@ -137,12 +137,13 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 		root.addChild("ROUND", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, 2.25F, -4.0F, 8.0F, 1.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 20.75F, 0.0F));
 
 		ModelPartData TRIPOD = root.addChild("TRIPOD", ModelPartBuilder.create().uv(0, 0).cuboid(-1.0F, -1.0F, -1.0F, 2.0F, 1.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 21.5F, 0.0F));
-			TRIPOD.addChild("tripod_support_r1", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1745F, 0.0F, 0.0F));
 			TRIPOD.addChild("tripod_leg_r1", ModelPartBuilder.create().uv(4, 0).cuboid(0.0F, -0.5F, 1.0F, 0.0F, 1.0F, 9.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, -0.3491F, 0.0F, 0.0F));
-			TRIPOD.addChild("tripod_support_r2", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -2.9671F, -1.0472F, 3.1416F));
-			TRIPOD.addChild("tripod_leg_r2", ModelPartBuilder.create().uv(4, 0).cuboid(0.0F, -0.5F, 1.0F, 0.0F, 1.0F, 9.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 2.7925F, -1.0472F, 3.1416F));
-			TRIPOD.addChild("tripod_support_r3", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -2.9671F, 1.0472F, 3.1416F));
-			TRIPOD.addChild("tripod_leg_r3", ModelPartBuilder.create().uv(4, 0).cuboid(0.0F, -0.5F, 1.0F, 0.0F, 1.0F, 9.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, 2.7925F, 1.0472F, 3.1416F));
+			TRIPOD.addChild("tripod_support_r1", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1745F, 0.0F, 0.0F));
+			TRIPOD.addChild("tripod_leg_r2", ModelPartBuilder.create().uv(4, 0).cuboid(0.0F, -0.5F, 1.0F, 0.0F, 1.0F, 9.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, -0.3491F, -2.0944F, 0.0F));
+			TRIPOD.addChild("tripod_support_r2", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1745F, -2.0944F, 0.0F));
+			TRIPOD.addChild("tripod_leg_r3", ModelPartBuilder.create().uv(4, 0).cuboid(0.0F, -0.5F, 1.0F, 0.0F, 1.0F, 9.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -1.5F, 0.0F, -0.3491F, 2.0944F, 0.0F));
+			TRIPOD.addChild("tripod_support_r3", ModelPartBuilder.create().uv(0, 1).cuboid(0.0F, 0.25F, 0.0F, 0.0F, 1.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.1745F, 2.0944F, 0.0F));
+
 
 		ModelPartData BOOM = root.addChild("BOOM", ModelPartBuilder.create(), ModelTransform.of(0.0F, -2.0F, 0.0F, -0.1745F, 0.0F, 0.0F));
 			BOOM.addChild("boom_pole_r1", ModelPartBuilder.create().uv(12, 0).cuboid(-1.0F, 0.0F, -8.0F, 2.0F, 0.0F, 20.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.7854F));
