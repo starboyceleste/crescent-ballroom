@@ -1,6 +1,7 @@
 package net.celeste.crescent;
 
 import net.celeste.crescent.block.CrescentBlocks;
+import net.celeste.crescent.entity.CrescentEntityType;
 import net.celeste.crescent.item.CrescentItemGroups;
 import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.api.ModInitializer;
@@ -18,5 +19,6 @@ public class Crescent implements ModInitializer {
 		CrescentItems.init();
 		CrescentBlocks.init();
 		CrescentItemGroups.init();
+		CrescentEntityType.init();
 	}
 }

@@ -2,22 +2,52 @@ package net.celeste.crescent.item;
 
 import net.celeste.crescent.Crescent;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class CrescentItems {
-    public static final CrescentItem BLUR_BM57_MICROPHONE = register("blur_bm57_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem BLUR_BM58_MICROPHONE = register("blur_bm58_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem BLUR_BM7B_MICROPHONE = register("blur_bm7b_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem GLUE_YETI_MICROPHONE = register("glue_yeti_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem PAPERX_CUBECAST_MICROPHONE = register("paperx_cubecast_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem TRUMANN_M_196_MICROPHONE = register("trumann_m_196_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem TRUMANN_U_98_MICROPHONE = register("trumann_u_98_microphone", new CrescentItem(new FabricItemSettings()));
-    public static final CrescentItem VOXEL_VOICE_VE20_MICROPHONE = register("voxel_voice_ve20_microphone", new CrescentItem(new FabricItemSettings()));
+    public static final Item BLUR_BM57_MICROPHONE = CrescentItems.register("blur_bm57_microphone", new Item(new FabricItemSettings()));
+    public static final Item BLUR_BM58_MICROPHONE = CrescentItems.register("blur_bm58_microphone", new Item(new FabricItemSettings()));
+    public static final Item BLUR_BM7B_MICROPHONE = CrescentItems.register("blur_bm7b_microphone", new Item(new FabricItemSettings()));
+    public static final Item GLUE_YETI_MICROPHONE = CrescentItems.register("glue_yeti_microphone", new Item(new FabricItemSettings()));
+    public static final Item PAPERX_CUBECAST_MICROPHONE = CrescentItems.register("paperx_cubecast_microphone", new Item(new FabricItemSettings()));
+    public static final Item TRUMANN_M_196_MICROPHONE = CrescentItems.register("trumann_m_196_microphone", new Item(new FabricItemSettings()));
+    public static final Item TRUMANN_U_98_MICROPHONE = CrescentItems.register("trumann_u_98_microphone", new Item(new FabricItemSettings()));
+    public static final Item VOXEL_VOICE_VE20_MICROPHONE = CrescentItems.register("voxel_voice_ve20_microphone", new Item(new FabricItemSettings()));
 
-    private static CrescentItem register(String id, CrescentItem item) {
-        return Registry.register(Registries.ITEM, new Identifier(Crescent.MOD_ID, id), item);
+    private static Item register(Block block) {
+        return CrescentItems.register(new BlockItem(block, new Item.Settings()));
+    }
+
+    private static Item register(Block block, Block ... blocks) {
+        BlockItem blockItem = new BlockItem(block, new Item.Settings());
+        for (Block block2 : blocks) {
+            Item.BLOCK_ITEMS.put(block2, blockItem);
+        }
+        return CrescentItems.register(blockItem);
+    }
+
+    private static Item register(BlockItem item) {
+        return CrescentItems.register(item.getBlock(), (Item)item);
+    }
+
+    protected static Item register(Block block, Item item) {
+        return CrescentItems.register(Registries.BLOCK.getId(block), item);
+    }
+
+    private static Item register(String id, Item item) {
+        return CrescentItems.register(new Identifier(Crescent.MOD_ID, id), item);
+    }
+
+    private static Item register(Identifier id, Item item) {
+        if (item instanceof BlockItem) {
+            ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
+        }
+        return Registry.register(Registries.ITEM, id, item);
     }
 
     public static void init(){}

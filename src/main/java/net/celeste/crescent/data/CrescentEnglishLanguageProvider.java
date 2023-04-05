@@ -12,9 +12,9 @@ public class CrescentEnglishLanguageProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
-        translationBuilder.add(CrescentItems.BLUR_BM57_MICROPHONE, "Blur SM57 Microphone");
-        translationBuilder.add(CrescentItems.BLUR_BM58_MICROPHONE, "Blur SM58 Microphone");
-        translationBuilder.add(CrescentItems.BLUR_BM7B_MICROPHONE, "Blur SM7B Microphone");
+        translationBuilder.add(CrescentItems.BLUR_BM57_MICROPHONE, "Blur BM57 Microphone");
+        translationBuilder.add(CrescentItems.BLUR_BM58_MICROPHONE, "Blur BM58 Microphone");
+        translationBuilder.add(CrescentItems.BLUR_BM7B_MICROPHONE, "Blur BM7B Microphone");
         translationBuilder.add(CrescentItems.GLUE_YETI_MICROPHONE, "Glue Yeti Microphone");
         translationBuilder.add(CrescentItems.PAPERX_CUBECAST_MICROPHONE, "PaperX CubeCast Microphone");
         translationBuilder.add(CrescentItems.TRUMANN_M_196_MICROPHONE, "Trumann M 196 Microphone");
