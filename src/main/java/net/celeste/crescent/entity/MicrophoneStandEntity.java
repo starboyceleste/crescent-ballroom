@@ -16,7 +16,7 @@ public class MicrophoneStandEntity extends LivingEntity {
     private static final Float boom_rotation_default = -10f;
     private static final Float boom_rotation_range = 120f;
     private static final Float boom_rotation_steps = 9f;
-    private static final Float boom_rotation_step_degree = boom_rotation_range / (boom_rotation_steps - 1);
+    private static final Float boom_rotation_step_degree = boom_rotation_range / (boom_rotation_steps - 1.0f);
     private float boom_rotation = boom_rotation_default;
 
     public MicrophoneStandEntity(EntityType<? extends MicrophoneStandEntity> entityType, World world) {
@@ -26,7 +26,7 @@ public class MicrophoneStandEntity extends LivingEntity {
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking())) {
-            if (this.boom_rotation < (boom_rotation_default + (boom_rotation_range / 2))) {
+            if (this.boom_rotation < (boom_rotation_default + (boom_rotation_range / 2.0f))) {
                 this.setBoomRotation(this.boom_rotation + boom_rotation_step_degree);
             }
             else {
