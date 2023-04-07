@@ -13,11 +13,11 @@ import net.minecraft.world.World;
 
 
 public class MicrophoneStandEntity extends LivingEntity {
-    private static final int DEFAULT_BOOM_ROTATION = -10;
-    private static final int rotation_range = 120;
-    private static final int rotation_steps = 9;
-    private static final Float rotation_step_degree = Float.valueOf(rotation_range / (rotation_steps - 1));
-    private float boomRotation = DEFAULT_BOOM_ROTATION;
+    private static final Float boom_rotation_default = -10f;
+    private static final Float boom_rotation_range = 120f;
+    private static final Float boom_rotation_steps = 9f;
+    private static final Float boom_rotation_step_degree = boom_rotation_range / (boom_rotation_steps - 1);
+    private float boom_rotation = boom_rotation_default;
 
     public MicrophoneStandEntity(EntityType<? extends MicrophoneStandEntity> entityType, World world) {
         super(entityType, world);
@@ -26,20 +26,20 @@ public class MicrophoneStandEntity extends LivingEntity {
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking())) {
-            if (this.boomRotation < (DEFAULT_BOOM_ROTATION + (rotation_range / 2))) {
-                this.setBoomRotation(this.boomRotation + rotation_step_degree);
+            if (this.boom_rotation < (boom_rotation_default + (boom_rotation_range / 2))) {
+                this.setBoomRotation(this.boom_rotation + boom_rotation_step_degree);
             }
             else {
-                this.setBoomRotation(this.boomRotation * -1);
+                this.setBoomRotation(this.boom_rotation * -1);
             }
         }
         return ActionResult.CONSUME;
     }
 
     public Float getBoomRotation() {
-        return this.boomRotation;
+        return this.boom_rotation;
     }
-    public void setBoomRotation(Float angle) { this.boomRotation = angle; }
+    public void setBoomRotation(Float angle) { this.boom_rotation = angle; }
 
     @Override
     public Iterable<ItemStack> getArmorItems() {
