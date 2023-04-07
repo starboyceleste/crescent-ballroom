@@ -8,7 +8,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
 public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntity> {
-	private final ModelPart root;
 	private final ModelPart POLE;
 	private final ModelPart pole_main;
 	private final ModelPart pole_main_r1;
@@ -57,7 +56,6 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart blur_bm58_body;
 	private final ModelPart BLUR_BM58_CABLE;
 	public MicrophoneStandEntityModel(ModelPart root) {
-		this.root = root;
 		this.POLE = root.getChild("POLE");
 			this.pole_main = this.POLE.getChild("pole_main");
 				this.pole_main_r1 = pole_main.getChild("pole_main_r1");
@@ -191,9 +189,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
 	@Override
 	public void setAngles(MicrophoneStandEntity microphoneStandEntity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		float currentAngle = this.BOOM.pitch;
-		float newAngle = ((float)Math.PI / 180) * microphoneStandEntity.getBoomRotation();
-		this.BOOM.pitch = MathHelper.lerp(0.1f, currentAngle, newAngle);
+		this.BOOM.pitch = MathHelper.lerp(0.1f, this.BOOM.pitch, ((float)Math.PI / 180) * microphoneStandEntity.getBoomRotation());
 	}
 
 	@Override
