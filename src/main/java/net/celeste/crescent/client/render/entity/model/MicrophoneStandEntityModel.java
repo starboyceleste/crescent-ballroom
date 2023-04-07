@@ -9,17 +9,22 @@ import net.minecraft.util.math.MathHelper;
 
 public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntity> {
 	private final ModelPart POLE;
+
 	private final ModelPart pole_main;
 	private final ModelPart pole_main_r1;
 	private final ModelPart pole_main_r2;
+
 	private final ModelPart pole_sec;
 	private final ModelPart pole_sec_r1;
 	private final ModelPart pole_sec_r2;
+
 	private final ModelPart pole_cable;
 	private final ModelPart pole_cable_ground;
 	private final ModelPart pole_cable_south;
 	private final ModelPart pole_cable_north;
+
 	private final ModelPart ROUND;
+
 	private final ModelPart TRIPOD;
 	private final ModelPart tripod_support_r1;
 	private final ModelPart tripod_leg_r1;
@@ -27,9 +32,11 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart tripod_leg_r2;
 	private final ModelPart tripod_support_r3;
 	private final ModelPart tripod_leg_r3;
+
 	private final ModelPart BOOM;
 	private final ModelPart boom_pole_r1;
 	private final ModelPart boom_pole_r2;
+
 	private final ModelPart GLUE_YETI;
 	private final ModelPart GLUE_YETI_MOUNT;
 	private final ModelPart glue_yeti_shock;
@@ -37,24 +44,28 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart glue_yeti_buttons;
 	private final ModelPart glue_yeti_logo;
 	private final ModelPart GLUE_YETI_CABLE;
+
 	private final ModelPart BLUR_BM7B;
 	private final ModelPart BLUR_BM7B_MOUNT;
 	private final ModelPart blur_bm7b_bracket;
 	private final ModelPart blur_bm7b_body;
 	private final ModelPart BLUR_BM7B_CABLE;
 	private final ModelPart BLUR_BM7B_ARMCABLE;
+
 	private final ModelPart BLUR_BM57;
 	private final ModelPart BLUR_BM57_MOUNT;
 	private final ModelPart blur_bm57_bracket;
 	private final ModelPart blur_bm57_bracket_r1;
 	private final ModelPart blur_bm57_body;
 	private final ModelPart BLUR_BM57_CABLE;
+
 	private final ModelPart BLUR_BM58;
 	private final ModelPart BLUR_BM58_MOUNT;
 	private final ModelPart blur_bm58_bracket;
 	private final ModelPart blur_bm58_bracket_r1;
 	private final ModelPart blur_bm58_body;
 	private final ModelPart BLUR_BM58_CABLE;
+
 	public MicrophoneStandEntityModel(ModelPart root) {
 		this.POLE = root.getChild("POLE");
 			this.pole_main = this.POLE.getChild("pole_main");
@@ -118,6 +129,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 		this.BLUR_BM7B.visible = true;
 		this.GLUE_YETI.visible = false;
 	}
+
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 
@@ -182,14 +194,13 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 		return TexturedModelData.of(modelData, 64, 64);
 	}
 
-
 	@Override
 	public void animateModel(MicrophoneStandEntity microphoneStandEntity, float f, float g, float h) {
 	}
 
 	@Override
 	public void setAngles(MicrophoneStandEntity microphoneStandEntity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-		this.BOOM.pitch = MathHelper.lerp(0.1f, this.BOOM.pitch, ((float)Math.PI / 180) * microphoneStandEntity.getBoomRotation());
+		this.BOOM.pitch = MathHelper.lerp(0.1f, this.BOOM.pitch, (float)Math.toRadians(microphoneStandEntity.getBoomRotation()));
 	}
 
 	@Override
