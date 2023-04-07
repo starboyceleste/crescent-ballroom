@@ -23,7 +23,7 @@ public class CrescentItems {
         return CrescentItems.register(new BlockItem(block, new Item.Settings()));
     }
 
-    private static Item register(Block block, Block ... blocks) {
+    private static Item register(Block block, Block... blocks) {
         BlockItem blockItem = new BlockItem(block, new Item.Settings());
         for (Block block2 : blocks) {
             Item.BLOCK_ITEMS.put(block2, blockItem);
@@ -32,7 +32,7 @@ public class CrescentItems {
     }
 
     private static Item register(BlockItem item) {
-        return CrescentItems.register(item.getBlock(), (Item)item);
+        return CrescentItems.register(item.getBlock(), item);
     }
 
     protected static Item register(Block block, Item item) {
@@ -45,10 +45,11 @@ public class CrescentItems {
 
     private static Item register(Identifier id, Item item) {
         if (item instanceof BlockItem) {
-            ((BlockItem)item).appendBlocks(Item.BLOCK_ITEMS, item);
+            ((BlockItem) item).appendBlocks(Item.BLOCK_ITEMS, item);
         }
         return Registry.register(Registries.ITEM, id, item);
     }
 
-    public static void init(){}
+    public static void init() {
+    }
 }

@@ -6,7 +6,6 @@ import net.celeste.crescent.client.render.entity.model.MicrophoneStandEntityMode
 import net.celeste.crescent.entity.MicrophoneStandEntity;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class MicrophoneStandEntityRenderer extends LivingEntityRenderer<MicrophoneStandEntity, MicrophoneStandEntityModel> {

@@ -28,8 +28,7 @@ public class MicrophoneStandEntity extends LivingEntity {
         if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking())) {
             if (this.boom_rotation < (boom_rotation_default + (boom_rotation_range / 2.0f))) {
                 this.setBoomRotation(this.boom_rotation + boom_rotation_step_degree);
-            }
-            else {
+            } else {
                 this.setBoomRotation(this.boom_rotation * -1);
             }
         }
@@ -39,19 +38,25 @@ public class MicrophoneStandEntity extends LivingEntity {
     public Float getBoomRotation() {
         return this.boom_rotation;
     }
-    public void setBoomRotation(Float angle) { this.boom_rotation = angle; }
+
+    public void setBoomRotation(Float angle) {
+        this.boom_rotation = angle;
+    }
 
     @Override
     public Iterable<ItemStack> getArmorItems() {
         return DefaultedList.ofSize(4, ItemStack.EMPTY);
     }
+
     @Override
     public ItemStack getEquippedStack(EquipmentSlot slot) {
         return ItemStack.EMPTY;
     }
+
     @Override
     public void equipStack(EquipmentSlot slot, ItemStack stack) {
     }
+
     @Override
     public Arm getMainArm() {
         return null;

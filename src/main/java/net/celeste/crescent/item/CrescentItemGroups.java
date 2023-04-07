@@ -21,5 +21,6 @@ public class CrescentItemGroups extends ItemGroups {
                 entries.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE);
             }).build();
 
-    public static void init(){}
+    public static void init() {
+    }
 }

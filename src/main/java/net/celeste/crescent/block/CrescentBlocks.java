@@ -16,5 +16,6 @@ public class CrescentBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(Crescent.MOD_ID, id), block);
     }
 
-    public static void init(){}
+    public static void init() {
+    }
 }
