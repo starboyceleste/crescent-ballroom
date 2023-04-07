@@ -5,8 +5,10 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntity> {
+	private final ModelPart root;
 	private final ModelPart POLE;
 	private final ModelPart pole_main;
 	private final ModelPart pole_main_r1;
@@ -31,7 +33,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart boom_pole_r2;
 	private final ModelPart GLUE_YETI;
 	private final ModelPart GLUE_YETI_MOUNT;
-	private final ModelPart glue_yeti_bracket;
+	private final ModelPart glue_yeti_shock;
 	private final ModelPart glue_yeti_body;
 	private final ModelPart glue_yeti_buttons;
 	private final ModelPart glue_yeti_logo;
@@ -55,6 +57,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 	private final ModelPart blur_bm58_body;
 	private final ModelPart BLUR_BM58_CABLE;
 	public MicrophoneStandEntityModel(ModelPart root) {
+		this.root = root;
 		this.POLE = root.getChild("POLE");
 			this.pole_main = this.POLE.getChild("pole_main");
 				this.pole_main_r1 = pole_main.getChild("pole_main_r1");
@@ -83,10 +86,10 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
 			this.GLUE_YETI = this.BOOM.getChild("GLUE_YETI");
 				this.GLUE_YETI_MOUNT = this.GLUE_YETI.getChild("GLUE_YETI_MOUNT");
-					this.glue_yeti_bracket = this.GLUE_YETI_MOUNT.getChild("glue_yeti_bracket");
-						this.glue_yeti_body = this.glue_yeti_bracket.getChild("glue_yeti_body");
-					this.glue_yeti_buttons = this.glue_yeti_body.getChild("glue_yeti_buttons");
-						this.glue_yeti_logo = this.glue_yeti_buttons.getChild("glue_yeti_logo");
+					this.glue_yeti_shock = this.GLUE_YETI_MOUNT.getChild("glue_yeti_shock");
+					this.glue_yeti_body = this.GLUE_YETI_MOUNT.getChild("glue_yeti_body");
+					this.glue_yeti_buttons = this.GLUE_YETI_MOUNT.getChild("glue_yeti_buttons");
+					this.glue_yeti_logo = this.GLUE_YETI_MOUNT.getChild("glue_yeti_logo");
 				this.GLUE_YETI_CABLE = this.GLUE_YETI.getChild("GLUE_YETI_CABLE");
 
 			this.BLUR_BM7B = this.BOOM.getChild("BLUR_BM7B");
@@ -114,7 +117,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 		this.ROUND.visible = false;
 		this.BLUR_BM57.visible = false;
 		this.BLUR_BM58.visible = false;
-		this.BLUR_BM7B.visible = false;
+		this.BLUR_BM7B.visible = true;
 		this.GLUE_YETI.visible = false;
 	}
 	public static TexturedModelData getTexturedModelData() {
@@ -162,7 +165,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 					ModelPartData blur_bm7b_bracket = BLUR_BM7B_MOUNT.addChild("blur_bm7b_bracket", ModelPartBuilder.create().uv(20, 13).cuboid(-1.5F, 1.5F, -1.0F, 3.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 						blur_bm7b_bracket.addChild("blur_bm7b_body", ModelPartBuilder.create().uv(10, 10).cuboid(-1.0F, -1.0F, -3.5F, 2.0F, 2.0F, 6.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 3.25F, -0.25F, 0.6109F, 0.0F, 0.0F));
 				BLUR_BM7B.addChild("BLUR_BM7B_CABLE", ModelPartBuilder.create().uv(10, 18).cuboid(-0.5F, 0.0F, 0.0F, 2.0F, 4.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.25F, -3.0F, -0.2618F, 0.0F, 0.0F));
-				BLUR_BM7B.addChild("BLUR_BM57_ARMCABLE", ModelPartBuilder.create().uv(20, 4).cuboid(0.0F, -1.5F, 0.0F, 0.0F, 2.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.25F, -3.0F));
+				BLUR_BM7B.addChild("BLUR_BM7B_ARMCABLE", ModelPartBuilder.create().uv(20, 4).cuboid(0.0F, -1.5F, 0.0F, 0.0F, 2.0F, 6.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.25F, -3.0F));
 
 			ModelPartData BLUR_BM57 = BOOM.addChild("BLUR_BM57", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -1.0F, -3.5F));
 				ModelPartData BLUR_BM57_MOUNT = BLUR_BM57.addChild("BLUR_BM57_MOUNT", ModelPartBuilder.create().uv(18, 19).cuboid(0.0F, -0.5F, -1.0F, 0.0F, 1.0F, 1.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 1.0F, -4.5F, 0.3491F, 0.0F, 0.0F));
@@ -180,9 +183,19 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
 		return TexturedModelData.of(modelData, 64, 64);
 	}
+
+
 	@Override
-	public void setAngles(MicrophoneStandEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void animateModel(MicrophoneStandEntity microphoneStandEntity, float f, float g, float h) {
 	}
+
+	@Override
+	public void setAngles(MicrophoneStandEntity microphoneStandEntity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		float currentAngle = this.BOOM.pitch;
+		float newAngle = ((float)Math.PI / 180) * microphoneStandEntity.getBoomRotation();
+		this.BOOM.pitch = MathHelper.lerp(0.1f, currentAngle, newAngle);
+	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		POLE.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
