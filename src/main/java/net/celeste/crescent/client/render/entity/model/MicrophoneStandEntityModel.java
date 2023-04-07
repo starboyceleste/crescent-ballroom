@@ -15,52 +15,13 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
     public MicrophoneStandEntityModel(ModelPart root) {
         this.POLE = root.getChild("POLE");
-        ModelPart pole_main = this.POLE.getChild("pole_main");
-        ModelPart pole_main_r1 = pole_main.getChild("pole_main_r1");
-        ModelPart pole_main_r2 = pole_main.getChild("pole_main_r2");
-        ModelPart pole_sec = this.POLE.getChild("pole_sec");
-        ModelPart pole_sec_r1 = pole_sec.getChild("pole_sec_r1");
-        ModelPart pole_sec_r2 = pole_sec.getChild("pole_sec_r2");
-        ModelPart pole_cable = this.POLE.getChild("pole_cable");
-        ModelPart pole_cable_ground = pole_cable.getChild("pole_cable_ground");
-        ModelPart pole_cable_south = pole_cable.getChild("pole_cable_south");
-        ModelPart pole_cable_north = pole_cable.getChild("pole_cable_north");
         this.ROUND = root.getChild("ROUND");
         this.TRIPOD = root.getChild("TRIPOD");
-        ModelPart tripod_support_r1 = this.TRIPOD.getChild("tripod_support_r1");
-        ModelPart tripod_leg_r1 = this.TRIPOD.getChild("tripod_leg_r1");
-        ModelPart tripod_support_r2 = this.TRIPOD.getChild("tripod_support_r2");
-        ModelPart tripod_leg_r2 = this.TRIPOD.getChild("tripod_leg_r2");
-        ModelPart tripod_support_r3 = this.TRIPOD.getChild("tripod_support_r3");
-        ModelPart tripod_leg_r3 = this.TRIPOD.getChild("tripod_leg_r3");
         this.BOOM = root.getChild("BOOM");
-        ModelPart boom_pole_r1 = this.BOOM.getChild("boom_pole_r1");
-        ModelPart boom_pole_r2 = this.BOOM.getChild("boom_pole_r2");
         ModelPart GLUE_YETI = this.BOOM.getChild("GLUE_YETI");
-        ModelPart GLUE_YETI_MOUNT = GLUE_YETI.getChild("GLUE_YETI_MOUNT");
-        ModelPart glue_yeti_shock = GLUE_YETI_MOUNT.getChild("glue_yeti_shock");
-        ModelPart glue_yeti_body = GLUE_YETI_MOUNT.getChild("glue_yeti_body");
-        ModelPart glue_yeti_buttons = GLUE_YETI_MOUNT.getChild("glue_yeti_buttons");
-        ModelPart glue_yeti_logo = GLUE_YETI_MOUNT.getChild("glue_yeti_logo");
-        ModelPart GLUE_YETI_CABLE = GLUE_YETI.getChild("GLUE_YETI_CABLE");
         ModelPart BLUR_BM7B = this.BOOM.getChild("BLUR_BM7B");
-        ModelPart BLUR_BM7B_MOUNT = BLUR_BM7B.getChild("BLUR_BM7B_MOUNT");
-        ModelPart blur_bm7b_bracket = BLUR_BM7B_MOUNT.getChild("blur_bm7b_bracket");
-        ModelPart blur_bm7b_body = blur_bm7b_bracket.getChild("blur_bm7b_body");
-        ModelPart BLUR_BM7B_CABLE = BLUR_BM7B.getChild("BLUR_BM7B_CABLE");
-        ModelPart BLUR_BM7B_ARMCABLE = BLUR_BM7B.getChild("BLUR_BM7B_ARMCABLE");
         ModelPart BLUR_BM57 = this.BOOM.getChild("BLUR_BM57");
-        ModelPart BLUR_BM57_MOUNT = BLUR_BM57.getChild("BLUR_BM57_MOUNT");
-        ModelPart blur_bm57_bracket = BLUR_BM57_MOUNT.getChild("blur_bm57_bracket");
-        ModelPart blur_bm57_bracket_r1 = blur_bm57_bracket.getChild("blur_bm57_bracket_r1"); // Unresolved parent (bracket -> bracket_r1) because this part needs to be rotated 45 degrees. Results in a nicer rotation for the BM57 body.
-        ModelPart blur_bm57_body = blur_bm57_bracket.getChild("blur_bm57_body");
-        ModelPart BLUR_BM57_CABLE = BLUR_BM57.getChild("BLUR_BM57_CABLE");
         ModelPart BLUR_BM58 = this.BOOM.getChild("BLUR_BM58");
-        ModelPart BLUR_BM58_MOUNT = BLUR_BM58.getChild("BLUR_BM58_MOUNT");
-        ModelPart blur_bm58_bracket = BLUR_BM58_MOUNT.getChild("blur_bm58_bracket");
-        ModelPart blur_bm58_bracket_r1 = blur_bm58_bracket.getChild("blur_bm58_bracket_r1");  // See BM57 bracket part.
-        ModelPart blur_bm58_body = blur_bm58_bracket.getChild("blur_bm58_body");
-        ModelPart BLUR_BM58_CABLE = BLUR_BM58.getChild("BLUR_BM58_CABLE");
         this.TRIPOD.visible = true;
         this.ROUND.visible = false;
         BLUR_BM57.visible = false;
@@ -129,7 +90,8 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
     @Override
     public void setAngles(MicrophoneStandEntity microphoneStandEntity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.BOOM.pitch = MathHelper.lerp(0.1f, this.BOOM.pitch, (float) Math.toRadians(microphoneStandEntity.getBoomRotation()));
+        this.BOOM.pitch = MathHelper.lerp(0.2f, (float) Math.toRadians(microphoneStandEntity.getBoomRotation("current")), (float) Math.toRadians(microphoneStandEntity.getBoomRotation("end")));
+        microphoneStandEntity.updateBoomRotation((float) Math.toDegrees(this.BOOM.pitch));
     }
 
     @Override
