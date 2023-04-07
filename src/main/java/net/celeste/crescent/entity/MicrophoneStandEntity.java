@@ -13,7 +13,10 @@ import net.minecraft.world.World;
 
 
 public class MicrophoneStandEntity extends LivingEntity {
-    private static final Float DEFAULT_BOOM_ROTATION = 0.0f;
+    private static final int DEFAULT_BOOM_ROTATION = -10;
+    private static final int rotation_range = 120;
+    private static final int rotation_steps = 9;
+    private static final Float rotation_step_degree = Float.valueOf(rotation_range / (rotation_steps - 1));
     private float boomRotation = DEFAULT_BOOM_ROTATION;
 
     public MicrophoneStandEntity(EntityType<? extends MicrophoneStandEntity> entityType, World world) {
@@ -23,8 +26,8 @@ public class MicrophoneStandEntity extends LivingEntity {
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
         if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking())) {
-            if (this.boomRotation < 60) {
-                this.setBoomRotation(this.boomRotation + 15);
+            if (this.boomRotation < (DEFAULT_BOOM_ROTATION + (rotation_range / 2))) {
+                this.setBoomRotation(this.boomRotation + rotation_step_degree);
             }
             else {
                 this.setBoomRotation(this.boomRotation * -1);
