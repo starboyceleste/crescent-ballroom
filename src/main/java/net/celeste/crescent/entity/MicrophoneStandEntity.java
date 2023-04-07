@@ -13,9 +13,9 @@ import net.minecraft.world.World;
 
 
 public class MicrophoneStandEntity extends LivingEntity {
-    private static final Float boom_rotation_default = -10f;
-    private static final Float boom_rotation_range = 120f;
-    private static final Float boom_rotation_steps = 9f;
+    private static final Float boom_rotation_default = -10.0f;
+    private static final Float boom_rotation_range = 120.0f;
+    private static final Float boom_rotation_steps = 9.0f;
     private static final Float boom_rotation_step_degree = boom_rotation_range / (boom_rotation_steps - 1.0f);
     private float boom_rotation = boom_rotation_default;
 
