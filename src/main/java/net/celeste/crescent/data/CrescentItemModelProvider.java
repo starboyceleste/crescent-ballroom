@@ -26,5 +26,6 @@ public class CrescentItemModelProvider extends FabricModelProvider {
         itemModelGenerator.register(CrescentItems.TRUMANN_M_196_MICROPHONE, Models.GENERATED);
         itemModelGenerator.register(CrescentItems.TRUMANN_U_98_MICROPHONE, Models.GENERATED);
         itemModelGenerator.register(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE, Models.GENERATED);
+        itemModelGenerator.register(CrescentItems.MICROPHONE_STAND, Models.GENERATED);
     }
 }

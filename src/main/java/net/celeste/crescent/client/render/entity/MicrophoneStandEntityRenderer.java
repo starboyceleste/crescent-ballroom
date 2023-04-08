@@ -22,25 +22,17 @@ public class MicrophoneStandEntityRenderer extends LivingEntityRenderer<Micropho
     }
 
     @Override
-    protected void setupTransforms(MicrophoneStandEntity microphoneStandEntity, MatrixStack matrixStack, float f, float g, float h) {
-        if (microphoneStandEntity.resetSteps > 0) {
-            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.sin(microphoneStandEntity.resetSteps / 1.5f * (float)Math.PI) * 3.0f));
+    protected void setupTransforms(MicrophoneStandEntity microphoneStandEntity, MatrixStack matrices, float animationProgress, float bodyYaw, float tickDelta) {
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0f - bodyYaw));
+        float i = (float)(microphoneStandEntity.world.getTime() - microphoneStandEntity.lastRotateTime) + tickDelta;
+        float shakeTime = 5.0f;
+        if (i < shakeTime) {
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.sin((float) (i / (5 / Math.PI) * Math.PI)) * 2.0f));
         }
     }
 
     @Override
     protected boolean hasLabel(MicrophoneStandEntity microphoneStandEntity) {
-        return (microphoneStandEntity.lastInteractTicks < 20);
+        return (microphoneStandEntity.world.getTime() - microphoneStandEntity.lastRotateTime < 10);
     }
-
-//    @Override
-//    protected boolean hasLabel(MicrophoneStandEntity microphoneStandEntity) {
-//        float f;
-//        double d = this.dispatcher.getSquaredDistanceToCamera(microphoneStandEntity);
-//        float f2 = f = microphoneStandEntity.isInSneakingPose() ? 32.0f : 64.0f;
-//        if (d >= (double)(f * f)) {
-//            return false;
-//        }
-//        return microphoneStandEntity.isCustomNameVisible();
-//    }
 }

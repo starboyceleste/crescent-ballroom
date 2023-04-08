@@ -1,10 +1,14 @@
 package net.celeste.crescent.entity;
 
+import net.celeste.crescent.Crescent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -22,9 +26,9 @@ public class MicrophoneStandEntity extends LivingEntity {
     private float boomRotation = BOOM_ROTATION_DEFAULT;
     private float boomRotationStart = BOOM_ROTATION_DEFAULT;
     private float boomRotationEnd = BOOM_ROTATION_DEFAULT;
-    public int resetSteps = 0;
-    private int lastResetTicks = 0;
-    public int lastInteractTicks = 0;
+    public boolean reset;
+    public long lastResetTime;
+    public long lastRotateTime;
 
     public MicrophoneStandEntity(EntityType<? extends MicrophoneStandEntity> entityType, World world) {
         super(entityType, world);
@@ -33,27 +37,24 @@ public class MicrophoneStandEntity extends LivingEntity {
     @Override
     public void tick() {
         super.tick();
-        if (this.resetSteps > 0) {
-            this.lastResetTicks++;
-            if (this.lastResetTicks > 1) {
+        if ((reset) && (this.world.getTime() - this.lastResetTime > 1)) {
+            if (this.boomRotationEnd > BOOM_ROTATION_DEFAULT - BOOM_ROTATION_RANGE / 2) {
                 setBoomRotation(this.boomRotationEnd - BOOM_ROTATION_STEP_DEGREE);
-                this.lastResetTicks = 0;
-                this.resetSteps --;
-            }
+                this.lastResetTime = this.world.getTime();
+            } else { reset = false; }
         }
-        this.lastInteractTicks ++;
         this.setCustomName(Text.of((Math.round(boomRotation)) + "°"));
     }
 
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
-        this.lastInteractTicks = 0;
-        if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking()) && (this.resetSteps == 0)) {
+        if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking()) && (!this.reset)) {
             if (this.boomRotationEnd < BOOM_ROTATION_DEFAULT + BOOM_ROTATION_RANGE / 2) {
                 setBoomRotation(this.boomRotationEnd + BOOM_ROTATION_STEP_DEGREE);
             } else {
                 this.jump();
-                this.resetSteps = (int) (BOOM_ROTATION_STEPS - 1);
+                this.reset = true;
+                this.lastResetTime = this.world.getTime();
             }
         }
         return ActionResult.SUCCESS;
@@ -62,6 +63,7 @@ public class MicrophoneStandEntity extends LivingEntity {
     public void setBoomRotation(float rotation) {
         this.playSound(SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, 1.0f, 0.5f);
         this.boomRotationStart = this.boomRotationEnd;
+        this.lastRotateTime = this.world.getTime();
         this.boomRotationEnd = rotation;
     }
 

@@ -19,6 +19,7 @@ public class CrescentItemGroups extends ItemGroups {
                 entries.add(CrescentItems.TRUMANN_M_196_MICROPHONE);
                 entries.add(CrescentItems.TRUMANN_U_98_MICROPHONE);
                 entries.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE);
+                entries.add(CrescentItems.MICROPHONE_STAND);
             }).build();
 
     public static void init() {

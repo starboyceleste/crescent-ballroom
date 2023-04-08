@@ -88,7 +88,7 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
 
     @Override
     public void setAngles(MicrophoneStandEntity microphoneStandEntity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.BOOM.pitch = MathHelper.lerp(0.2f, (float) Math.toRadians(microphoneStandEntity.getBoomRotation("current")), (float) Math.toRadians(microphoneStandEntity.getBoomRotation("end")));
+        this.BOOM.pitch = MathHelper.lerp(0.4f, (float) Math.toRadians(microphoneStandEntity.getBoomRotation("current")), (float) Math.toRadians(microphoneStandEntity.getBoomRotation("end")));
         microphoneStandEntity.updateBoomRotation((float) Math.toDegrees(this.BOOM.pitch));
     }
 

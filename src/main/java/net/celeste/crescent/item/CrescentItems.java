@@ -18,6 +18,7 @@ public class CrescentItems {
     public static final Item TRUMANN_M_196_MICROPHONE = CrescentItems.register("trumann_m_196_microphone", new Item(new FabricItemSettings()));
     public static final Item TRUMANN_U_98_MICROPHONE = CrescentItems.register("trumann_u_98_microphone", new Item(new FabricItemSettings()));
     public static final Item VOXEL_VOICE_VE20_MICROPHONE = CrescentItems.register("voxel_voice_ve20_microphone", new Item(new FabricItemSettings()));
+    public static final Item MICROPHONE_STAND = CrescentItems.register("microphone_stand", new MicrophoneStandItem(new FabricItemSettings()));
 
     private static Item register(Block block) {
         return CrescentItems.register(new BlockItem(block, new Item.Settings()));
