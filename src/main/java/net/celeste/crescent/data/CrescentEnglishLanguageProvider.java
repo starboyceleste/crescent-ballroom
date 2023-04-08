@@ -20,6 +20,7 @@ public class CrescentEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(CrescentItems.TRUMANN_M_196_MICROPHONE, "Trumann M 196 Microphone");
         translationBuilder.add(CrescentItems.TRUMANN_U_98_MICROPHONE, "Trumann U 98 Microphone");
         translationBuilder.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE, "Voxel-Voice VE20 Microphone");
+        translationBuilder.add(CrescentItems.MICROPHONE_STAND, "Microphone Stand with Boom Arm");
         translationBuilder.add(CrescentItemGroups.CRESCENT, "Crescent");
     }
 }

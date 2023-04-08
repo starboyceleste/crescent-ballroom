@@ -13,10 +13,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
@@ -53,7 +50,7 @@ public class MicrophoneStandItem extends Item {
             }
             context.getPlayer().sendMessage(Text.of(".getYaw(): " + (context.getPlayer().getYaw())));
             context.getPlayer().sendMessage(Text.of(".getPlayerYaw(): " + (context.getPlayerYaw())));
-            float f = context.getPlayerYaw();
+            float f = MathHelper.wrapDegrees(context.getPlayerYaw() - 180.0f);
             microphoneStandEntity.refreshPositionAndAngles(microphoneStandEntity.getX(), microphoneStandEntity.getY(), microphoneStandEntity.getZ(), f, 0.0f);
             serverWorld.spawnEntityAndPassengers(microphoneStandEntity);
             world.playSound(null, microphoneStandEntity.getX(), microphoneStandEntity.getY(), microphoneStandEntity.getZ(), SoundEvents.BLOCK_NETHERITE_BLOCK_PLACE, SoundCategory.BLOCKS, 0.75f, 0.8f);

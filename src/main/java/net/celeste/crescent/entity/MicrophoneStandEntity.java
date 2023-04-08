@@ -1,14 +1,10 @@
 package net.celeste.crescent.entity;
 
-import net.celeste.crescent.Crescent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
@@ -44,6 +40,11 @@ public class MicrophoneStandEntity extends LivingEntity {
             } else { reset = false; }
         }
         this.setCustomName(Text.of((Math.round(boomRotation)) + "°"));
+    }
+
+    @Override
+    public boolean isPushable() {
+        return false;
     }
 
     @Override
