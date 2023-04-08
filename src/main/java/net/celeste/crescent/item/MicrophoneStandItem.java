@@ -3,10 +3,7 @@ package net.celeste.crescent.item;
 import net.celeste.crescent.entity.CrescentEntityType;
 import net.celeste.crescent.entity.MicrophoneStandEntity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.decoration.ArmorStandEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -16,8 +13,10 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
@@ -43,11 +42,13 @@ public class MicrophoneStandItem extends Item {
         if (!world.isSpaceEmpty(null, box) || !world.getOtherEntities(null, box).isEmpty()) {
             return ActionResult.FAIL;
         }
-        if (world instanceof ServerWorld) {
-            ServerWorld serverWorld = (ServerWorld)world;
+        if (world instanceof ServerWorld serverWorld) {
             Consumer<MicrophoneStandEntity> consumer = EntityType.nbtCopier(entity -> {}, serverWorld, itemStack, context.getPlayer());
             MicrophoneStandEntity microphoneStandEntity = CrescentEntityType.MICROPHONE_STAND.create(serverWorld, itemStack.getNbt(), consumer, blockPos, SpawnReason.SPAWN_EGG, true, true);
             if (microphoneStandEntity == null) {
+                return ActionResult.FAIL;
+            }
+            if (context.getPlayer() == null) {
                 return ActionResult.FAIL;
             }
             context.getPlayer().sendMessage(Text.of(".getYaw(): " + (context.getPlayer().getYaw())));
