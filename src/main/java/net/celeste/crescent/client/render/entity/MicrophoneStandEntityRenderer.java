@@ -23,9 +23,14 @@ public class MicrophoneStandEntityRenderer extends LivingEntityRenderer<Micropho
 
     @Override
     protected void setupTransforms(MicrophoneStandEntity microphoneStandEntity, MatrixStack matrixStack, float f, float g, float h) {
-        if (microphoneStandEntity.reset > 0) {
-            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.sin(microphoneStandEntity.reset / 1.5f * (float)Math.PI) * 3.0f));
+        if (microphoneStandEntity.resetSteps > 0) {
+            matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.sin(microphoneStandEntity.resetSteps / 1.5f * (float)Math.PI) * 3.0f));
         }
+    }
+
+    @Override
+    protected boolean hasLabel(MicrophoneStandEntity microphoneStandEntity) {
+        return (microphoneStandEntity.lastInteractTicks < 20);
     }
 
 //    @Override

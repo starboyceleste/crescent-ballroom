@@ -18,16 +18,14 @@ public class MicrophoneStandEntityModel extends EntityModel<MicrophoneStandEntit
         this.ROUND = root.getChild("ROUND");
         this.TRIPOD = root.getChild("TRIPOD");
         this.BOOM = root.getChild("BOOM");
-        ModelPart GLUE_YETI = this.BOOM.getChild("GLUE_YETI");
-        ModelPart BLUR_BM7B = this.BOOM.getChild("BLUR_BM7B");
-        ModelPart BLUR_BM57 = this.BOOM.getChild("BLUR_BM57");
-        ModelPart BLUR_BM58 = this.BOOM.getChild("BLUR_BM58");
+
         this.TRIPOD.visible = true;
         this.ROUND.visible = false;
-        BLUR_BM57.visible = false;
-        BLUR_BM58.visible = false;
-        BLUR_BM7B.visible = true;
-        GLUE_YETI.visible = false;
+
+        this.BOOM.getChild("BLUR_BM57").visible = false;
+        this.BOOM.getChild("BLUR_BM58").visible = false;
+        this.BOOM.getChild("BLUR_BM7B").visible = true;
+        this.BOOM.getChild("GLUE_YETI").visible = false;
     }
 
     public static TexturedModelData getTexturedModelData() {

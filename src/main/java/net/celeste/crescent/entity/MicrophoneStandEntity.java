@@ -13,20 +13,18 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-import java.text.DecimalFormat;
-
 
 public class MicrophoneStandEntity extends LivingEntity {
-    private static final Float boom_rotation_default = -10.0f;
-    private static final Float boom_rotation_range = 120.0f;
-    private static final Float boom_rotation_steps = 9.0f;
-    private static final Float boom_rotation_step_degree = boom_rotation_range / (boom_rotation_steps - 1);
-    private float boom_rotation = boom_rotation_default;
-    private float boom_rotation_start = boom_rotation_default;
-    private float boom_rotation_end = boom_rotation_default;
-    public int reset = 0;
-    public int last_reset_time = 0;
-    DecimalFormat df = new DecimalFormat("#.#");
+    private static final Float BOOM_ROTATION_DEFAULT = -10.0f;
+    private static final Float BOOM_ROTATION_RANGE = 120.0f;
+    private static final Float BOOM_ROTATION_STEPS = 9.0f;
+    private static final Float BOOM_ROTATION_STEP_DEGREE = BOOM_ROTATION_RANGE / (BOOM_ROTATION_STEPS - 1);
+    private float boomRotation = BOOM_ROTATION_DEFAULT;
+    private float boomRotationStart = BOOM_ROTATION_DEFAULT;
+    private float boomRotationEnd = BOOM_ROTATION_DEFAULT;
+    public int resetSteps = 0;
+    private int lastResetTicks = 0;
+    public int lastInteractTicks = 0;
 
     public MicrophoneStandEntity(EntityType<? extends MicrophoneStandEntity> entityType, World world) {
         super(entityType, world);
@@ -35,29 +33,27 @@ public class MicrophoneStandEntity extends LivingEntity {
     @Override
     public void tick() {
         super.tick();
-        if (boom_rotation != boom_rotation_end) {
-            this.setCustomName(Text.of(df.format(boom_rotation) + " [" + df.format(Math.abs(boom_rotation_end - boom_rotation)) + "]"));
-        } else {
-            this.setCustomName(Text.of(String.valueOf(df.format(boom_rotation))));
-        }
-        if (reset > 0) {
-            this.last_reset_time ++;
-            if (this.last_reset_time > 1) {
-                setBoomRotation(this.boom_rotation_end - boom_rotation_step_degree);
-                this.last_reset_time = 0;
-                reset --;
+        if (this.resetSteps > 0) {
+            this.lastResetTicks++;
+            if (this.lastResetTicks > 1) {
+                setBoomRotation(this.boomRotationEnd - BOOM_ROTATION_STEP_DEGREE);
+                this.lastResetTicks = 0;
+                this.resetSteps --;
             }
         }
+        this.lastInteractTicks ++;
+        this.setCustomName(Text.of((Math.round(boomRotation)) + "°"));
     }
 
     @Override
     public ActionResult interact(PlayerEntity player, Hand hand) {
-        if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking()) && (reset == 0)) {
-            if (this.boom_rotation_end < boom_rotation_default + boom_rotation_range / 2) {
-                setBoomRotation(this.boom_rotation_end + boom_rotation_step_degree);
+        this.lastInteractTicks = 0;
+        if ((player.getStackInHand(hand).isEmpty()) && (player.isSneaking()) && (this.resetSteps == 0)) {
+            if (this.boomRotationEnd < BOOM_ROTATION_DEFAULT + BOOM_ROTATION_RANGE / 2) {
+                setBoomRotation(this.boomRotationEnd + BOOM_ROTATION_STEP_DEGREE);
             } else {
                 this.jump();
-                reset = (int) (boom_rotation_steps - 1);
+                this.resetSteps = (int) (BOOM_ROTATION_STEPS - 1);
             }
         }
         return ActionResult.SUCCESS;
@@ -65,20 +61,20 @@ public class MicrophoneStandEntity extends LivingEntity {
 
     public void setBoomRotation(float rotation) {
         this.playSound(SoundEvents.ENTITY_FISHING_BOBBER_RETRIEVE, 1.0f, 0.5f);
-        this.boom_rotation_start = this.boom_rotation_end;
-        this.boom_rotation_end = rotation;
+        this.boomRotationStart = this.boomRotationEnd;
+        this.boomRotationEnd = rotation;
     }
 
     public void updateBoomRotation(float rotation){
-        this.boom_rotation = rotation;
+        this.boomRotation = rotation;
     }
 
     public Float getBoomRotation(String when) {
         return switch (when) {
-            case "start" -> this.boom_rotation_start;
-            case "current" -> this.boom_rotation;
-            case "end" -> this.boom_rotation_end;
-            default -> boom_rotation_default;
+            case "start" -> this.boomRotationStart;
+            case "current" -> this.boomRotation;
+            case "end" -> this.boomRotationEnd;
+            default -> BOOM_ROTATION_DEFAULT;
         };
     }
 
