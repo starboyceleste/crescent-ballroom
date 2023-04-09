@@ -48,6 +48,7 @@ public class MicrophoneStandItem extends Item {
             if (context.getPlayer() == null) {
                 return ActionResult.FAIL;
             }
+            context.getPlayer().totalExperience
             context.getPlayer().sendMessage(Text.of(".getYaw(): " + (context.getPlayer().getYaw())));
             context.getPlayer().sendMessage(Text.of(".getPlayerYaw(): " + (context.getPlayerYaw())));
             float f = MathHelper.wrapDegrees(context.getPlayerYaw() - 180.0f);
