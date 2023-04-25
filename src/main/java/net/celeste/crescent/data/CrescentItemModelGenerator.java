@@ -1,6 +1,5 @@
 package net.celeste.crescent.data;
 
-import net.celeste.crescent.block.CrescentBlocks;
 import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
