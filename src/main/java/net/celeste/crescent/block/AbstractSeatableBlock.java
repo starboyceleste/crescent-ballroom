@@ -5,7 +5,6 @@ import net.celeste.crescent.entity.SeatEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -31,14 +30,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractSeatableBlock extends HorizontalFacingBlock {
-    private final BlockState baseBlockState;
-    private final Block baseBlock;
     public float height;
 
     protected AbstractSeatableBlock(Settings settings) {
         super(settings);
-        this.baseBlockState = this.getDefaultState();
-        this.baseBlock = baseBlockState.getBlock();
         setDefaultState(this.getStateManager().getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
 
         this.height = 0.5f;
@@ -89,7 +84,6 @@ public class AbstractSeatableBlock extends HorizontalFacingBlock {
             return ActionResult.SUCCESS;
         }
         else if (sitEntity(world, pos, state, player) == ActionResult.SUCCESS) {
-//            player.incrementStat(Statistics.CHAIR_USED);
             return ActionResult.SUCCESS;
         }
         return ActionResult.CONSUME;
@@ -98,13 +92,9 @@ public class AbstractSeatableBlock extends HorizontalFacingBlock {
     public ActionResult sitEntity(World world, BlockPos pos, BlockState state, Entity entityToSit) {
         float yaw = state.get(FACING).asRotation();
         SeatEntity seatEntity = CrescentEntityType.SEAT.create(world);
-        seatEntity.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY() + this.height, pos.getZ() + 0.5, yaw, 0);
-        seatEntity.setNoGravity(true);
-        seatEntity.setSilent(true);
-        seatEntity.setInvisible(false);
-        seatEntity.setInvulnerable(true);
-        seatEntity.setAiDisabled(true);
-        seatEntity.setNoDrag(true);
+        if (seatEntity != null) {
+            seatEntity.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY() + this.height, pos.getZ() + 0.5, yaw, 0);
+        }
         seatEntity.setHeadYaw(yaw);
         seatEntity.setYaw(yaw);
         seatEntity.setBodyYaw(yaw);
@@ -132,13 +122,6 @@ public class AbstractSeatableBlock extends HorizontalFacingBlock {
             return;
         }
         sitEntity(world, pos, state, entity);
-    }
-
-    public int getFlammability(BlockState state, BlockView world, BlockPos pos, Direction face) {
-        if (state.getMaterial() == Material.WOOD || state.getMaterial() == Material.WOOL) {
-            return 20;
-        }
-        return 0;
     }
 
     @Override

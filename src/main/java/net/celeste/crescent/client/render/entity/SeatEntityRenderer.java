@@ -15,8 +15,4 @@ public class SeatEntityRenderer extends MobEntityRenderer<SeatEntity, SeatEntity
     public Identifier getTexture(SeatEntity entity) {
         return new Identifier("minecraft:textures/block/stone.png");
     }
-
-    public SeatEntityRenderer(EntityRendererFactory.Context context, SeatEntityModel entityModel, float f) {
-        super(context, entityModel, f);
-    }
 }

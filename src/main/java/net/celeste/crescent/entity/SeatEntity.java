@@ -1,13 +1,14 @@
 package net.celeste.crescent.entity;
 
-import com.google.common.collect.UnmodifiableIterator;
 import net.celeste.crescent.block.AbstractSeatableBlock;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Dismounting;
+import net.minecraft.entity.EntityPose;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -46,40 +47,22 @@ public class SeatEntity extends MobEntity {
         this.setVelocity(Vec3d.ZERO);
     }
 
-    @Override
-    public boolean isAlive() {
-        return !this.isRemoved();
-    }
-
-
     public ActionResult interactAt(PlayerEntity player, Vec3d hitPos, Hand hand) {
         return super.interactAt(player, hitPos, hand);
     }
 
     @Override
-    public boolean isPushedByFluids() {
-        return false;
-    }
-
-    @Override
     public Vec3d updatePassengerForDismount(LivingEntity passenger) {
         Direction direction = this.getMovementDirection();
-        if (direction.getAxis() == Direction.Axis.Y) {
-            return super.updatePassengerForDismount(passenger);
-        } else {
+        if (direction.getAxis() != Direction.Axis.Y) {
             int[][] is = Dismounting.getDismountOffsets(direction);
             BlockPos blockPos = this.getBlockPos();
             BlockPos.Mutable mutable = new BlockPos.Mutable();
-            UnmodifiableIterator var6 = passenger.getPoses().iterator();
 
-            while(var6.hasNext()) {
-                EntityPose entityPose = (EntityPose)var6.next();
+            for (EntityPose entityPose : passenger.getPoses()) {
                 Box box = passenger.getBoundingBox(entityPose);
-                int[][] var9 = is;
-                int var10 = is.length;
 
-                for(int var11 = 0; var11 < var10; ++var11) {
-                    int[] js = var9[var11];
+                for (int[] js : is) {
                     mutable.set(blockPos.getX() + js[0], blockPos.getY() + 0.3, blockPos.getZ() + js[1]);
                     double d = this.world.getDismountHeight(mutable);
                     if (Dismounting.canDismountInBlock(d)) {
@@ -91,8 +74,8 @@ public class SeatEntity extends MobEntity {
                     }
                 }
             }
-            return super.updatePassengerForDismount(passenger);
         }
+        return super.updatePassengerForDismount(passenger);
     }
 
     public static DefaultAttributeContainer.Builder createAttributes(){
@@ -100,7 +83,25 @@ public class SeatEntity extends MobEntity {
     }
 
     @Override
-    public boolean canBeRiddenInWater() {
-        return true;
+    public boolean isAlive() {
+        return !this.isRemoved();
     }
+    @Override
+    public boolean isPushedByFluids() {
+        return false;
+    }
+    @Override
+    public boolean canBeRiddenInWater() { return true; }
+    @Override
+    public boolean hasNoGravity() { return true; }
+    @Override
+    public boolean isSilent() { return true; }
+    @Override
+    public boolean isInvisible() { return true; }
+    @Override
+    public boolean isInvulnerable() { return true; }
+    @Override
+    public boolean isAiDisabled () { return true; }
+    @Override
+    public boolean hasNoDrag() { return true; }
 }
