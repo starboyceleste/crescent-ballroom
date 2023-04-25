@@ -4,6 +4,7 @@ import net.celeste.crescent.entity.CrescentEntityType;
 import net.celeste.crescent.entity.MicrophoneStandEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.*;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 
@@ -48,16 +50,23 @@ public class MicrophoneStandItem extends Item {
             if (context.getPlayer() == null) {
                 return ActionResult.FAIL;
             }
-            context.getPlayer().totalExperience
-            context.getPlayer().sendMessage(Text.of(".getYaw(): " + (context.getPlayer().getYaw())));
-            context.getPlayer().sendMessage(Text.of(".getPlayerYaw(): " + (context.getPlayerYaw())));
-            float f = MathHelper.wrapDegrees(context.getPlayerYaw() - 180.0f);
+            float f = (float)MathHelper.floor((MathHelper.wrapDegrees(context.getPlayerYaw() - 180.0f) + 7.5f) / 15.0f) * 15.0f;
             microphoneStandEntity.refreshPositionAndAngles(microphoneStandEntity.getX(), microphoneStandEntity.getY(), microphoneStandEntity.getZ(), f, 0.0f);
+            this.setRotations(microphoneStandEntity);
             serverWorld.spawnEntityAndPassengers(microphoneStandEntity);
             world.playSound(null, microphoneStandEntity.getX(), microphoneStandEntity.getY(), microphoneStandEntity.getZ(), SoundEvents.BLOCK_NETHERITE_BLOCK_PLACE, SoundCategory.BLOCKS, 0.75f, 0.8f);
             microphoneStandEntity.emitGameEvent(GameEvent.ENTITY_PLACE, context.getPlayer());
         }
         itemStack.decrement(1);
         return ActionResult.success(world.isClient);
+    }
+
+    private void setRotations(MicrophoneStandEntity microphoneStandEntity) {
+        EulerAngle eulerAngle = microphoneStandEntity.getHeadRotation();
+        EulerAngle eulerAngle2 = new EulerAngle(eulerAngle.getPitch(), eulerAngle.getYaw(), eulerAngle.getRoll());
+        microphoneStandEntity.setHeadRotation(eulerAngle2);
+        eulerAngle = microphoneStandEntity.getBodyRotation();
+        eulerAngle2 = new EulerAngle(eulerAngle.getPitch(), eulerAngle.getYaw(), eulerAngle.getRoll());
+        microphoneStandEntity.setBodyRotation(eulerAngle2);
     }
 }

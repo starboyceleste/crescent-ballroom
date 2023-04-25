@@ -1,7 +1,7 @@
 package net.celeste.crescent;
 
 import net.celeste.crescent.data.CrescentEnglishLanguageProvider;
-import net.celeste.crescent.data.CrescentItemModelProvider;
+import net.celeste.crescent.data.CrescentModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -10,7 +10,7 @@ public class CrescentDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         Crescent.LOGGER.info("Initialized data generator.");
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(CrescentItemModelProvider::new);
+        pack.addProvider(CrescentModelProvider::new);
         pack.addProvider(CrescentEnglishLanguageProvider::new);
     }
 }

@@ -1,5 +1,6 @@
 package net.celeste.crescent.data;
 
+import net.celeste.crescent.block.CrescentBlocks;
 import net.celeste.crescent.item.CrescentItemGroups;
 import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -21,6 +22,7 @@ public class CrescentEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(CrescentItems.TRUMANN_U_98_MICROPHONE, "Trumann U 98 Microphone");
         translationBuilder.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE, "Voxel-Voice VE20 Microphone");
         translationBuilder.add(CrescentItems.MICROPHONE_STAND, "Microphone Stand with Boom Arm");
+        translationBuilder.add(CrescentBlocks.FLORENCE_CESNA_CHAIR, "Florence Cesna Chair");
         translationBuilder.add(CrescentItemGroups.CRESCENT, "Crescent");
     }
 }

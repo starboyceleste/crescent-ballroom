@@ -1,6 +1,7 @@
 package net.celeste.crescent.item;
 
 import net.celeste.crescent.Crescent;
+import net.celeste.crescent.block.CrescentBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -19,6 +20,7 @@ public class CrescentItems {
     public static final Item TRUMANN_U_98_MICROPHONE = CrescentItems.register("trumann_u_98_microphone", new Item(new FabricItemSettings()));
     public static final Item VOXEL_VOICE_VE20_MICROPHONE = CrescentItems.register("voxel_voice_ve20_microphone", new Item(new FabricItemSettings()));
     public static final Item MICROPHONE_STAND = CrescentItems.register("microphone_stand", new MicrophoneStandItem(new FabricItemSettings()));
+    public static final Item FLORENCE_CESNA_CHAIR = CrescentItems.register(CrescentBlocks.FLORENCE_CESNA_CHAIR);
 
     private static Item register(Block block) {
         return CrescentItems.register(new BlockItem(block, new Item.Settings()));

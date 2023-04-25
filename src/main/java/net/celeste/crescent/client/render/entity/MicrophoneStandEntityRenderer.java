@@ -24,7 +24,7 @@ public class MicrophoneStandEntityRenderer extends LivingEntityRenderer<Micropho
     @Override
     protected void setupTransforms(MicrophoneStandEntity microphoneStandEntity, MatrixStack matrices, float animationProgress, float bodyYaw, float tickDelta) {
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0f - bodyYaw));
-        float i = (float)(microphoneStandEntity.world.getTime() - microphoneStandEntity.lastRotateTime) + tickDelta;
+        float i = (float)(microphoneStandEntity.world.getTime() - microphoneStandEntity.lastShakeTime) + tickDelta;
         float shakeTime = 5.0f;
         if (i < shakeTime) {
             matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.sin((float) (i / (5 / Math.PI) * Math.PI)) * 2.0f));
@@ -33,6 +33,6 @@ public class MicrophoneStandEntityRenderer extends LivingEntityRenderer<Micropho
 
     @Override
     protected boolean hasLabel(MicrophoneStandEntity microphoneStandEntity) {
-        return (microphoneStandEntity.world.getTime() - microphoneStandEntity.lastRotateTime < 10);
+        return (microphoneStandEntity.world.getTime() - microphoneStandEntity.lastShakeTime < 10);
     }
 }
