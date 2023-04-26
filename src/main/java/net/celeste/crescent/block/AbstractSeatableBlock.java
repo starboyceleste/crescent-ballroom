@@ -29,7 +29,7 @@ import net.minecraft.world.WorldAccess;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AbstractSeatableBlock extends HorizontalFacingBlock {
+public abstract class AbstractSeatableBlock extends HorizontalFacingBlock {
     public float height;
 
     protected AbstractSeatableBlock(Settings settings) {

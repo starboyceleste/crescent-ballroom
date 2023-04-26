@@ -19,6 +19,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
+@SuppressWarnings("deprecation")
 public class CesnaChairBlock extends AbstractSeatableBlock {
     public CesnaChairBlock(Settings settings) {
         super(settings);
@@ -42,7 +43,6 @@ public class CesnaChairBlock extends AbstractSeatableBlock {
         };
     }
 
-    @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction facing = state.get(FACING);
         return switch (facing) {

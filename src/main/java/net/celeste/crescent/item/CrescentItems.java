@@ -26,14 +26,6 @@ public class CrescentItems {
         return CrescentItems.register(new BlockItem(block, new Item.Settings()));
     }
 
-//    private static Item register(Block block, Block... blocks) {
-//        BlockItem blockItem = new BlockItem(block, new Item.Settings());
-//        for (Block block2 : blocks) {
-//            Item.BLOCK_ITEMS.put(block2, blockItem);
-//        }
-//        return CrescentItems.register(blockItem);
-//    }
-
     private static Item register(BlockItem item) {
         return CrescentItems.register(item.getBlock(), item);
     }
