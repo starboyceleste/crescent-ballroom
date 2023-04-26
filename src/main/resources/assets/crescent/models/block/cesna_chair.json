@@ -8,9 +8,9 @@
 	"elements": [
 		{
 			"name": "front_leg",
-			"from": [14, 0, 4],
-			"to": [15, 26, 5.5],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
+			"from": [13.5, 0, 4],
+			"to": [14.5, 26, 5.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.5, 0, 5]},
 			"faces": {
 				"north": {"uv": [0.75, 0.75, 1.25, 13.75], "texture": "#texture"},
 				"east": {"uv": [0, 0.75, 0.75, 13.75], "texture": "#texture"},
@@ -22,9 +22,9 @@
 		},
 		{
 			"name": "front_leg",
-			"from": [2, 0, 4],
-			"to": [3, 26, 5.5],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
+			"from": [1.5, 0, 4],
+			"to": [2.5, 26, 5.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.5, 0, 5]},
 			"faces": {
 				"north": {"uv": [0.75, 0.75, 1.25, 13.75], "texture": "#texture"},
 				"east": {"uv": [1.25, 0.75, 2, 13.75], "texture": "#texture"},
@@ -36,9 +36,9 @@
 		},
 		{
 			"name": "front_top_crosspiece",
-			"from": [3, 20, 4.5],
-			"to": [14, 22, 5],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
+			"from": [2.5, 20, 4.5],
+			"to": [13.5, 22, 5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.5, 0, 5]},
 			"faces": {
 				"north": {"uv": [5, 5.5, 6, 0], "rotation": 90, "texture": "#texture"},
 				"south": {"uv": [5, 11, 6, 5.5], "rotation": 90, "texture": "#texture"},
@@ -48,9 +48,9 @@
 		},
 		{
 			"name": "front_top_crosspiece",
-			"from": [3, 23, 4.5],
-			"to": [14, 25, 5],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
+			"from": [2.5, 23, 4.5],
+			"to": [13.5, 25, 5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.5, 0, 5]},
 			"faces": {
 				"north": {"uv": [5, 0, 6, 5.5], "rotation": 90, "texture": "#texture"},
 				"south": {"uv": [5, 5.5, 6, 11], "rotation": 90, "texture": "#texture"},
@@ -60,9 +60,9 @@
 		},
 		{
 			"name": "front_bottom_crosspiece",
-			"from": [3, 5, 4.25],
-			"to": [14, 7, 4.75],
-			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 0, 5]},
+			"from": [2.5, 5, 4.25],
+			"to": [13.5, 7, 4.75],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [7.5, 0, 5]},
 			"faces": {
 				"north": {"uv": [5, 0, 6, 5.5], "rotation": 90, "texture": "#texture"},
 				"south": {"uv": [5, 5.5, 6, 11], "rotation": 90, "texture": "#texture"},
@@ -72,9 +72,9 @@
 		},
 		{
 			"name": "back_leg",
-			"from": [13.5, 0, 18.5],
-			"to": [14.5, 19, 20],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 19]},
+			"from": [13, 0, 18.5],
+			"to": [14, 19, 20],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [7.5, 0, 19]},
 			"faces": {
 				"north": {"uv": [3.25, 0.75, 3.75, 10.25], "texture": "#texture"},
 				"east": {"uv": [3.75, 0.75, 4.5, 10.25], "texture": "#texture"},
@@ -86,9 +86,9 @@
 		},
 		{
 			"name": "back_leg",
-			"from": [2.5, 0, 18.5],
-			"to": [3.5, 19, 20],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 19]},
+			"from": [2, 0, 18.5],
+			"to": [3, 19, 20],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [7.5, 0, 19]},
 			"faces": {
 				"north": {"uv": [3.75, 0.75, 3.25, 10.25], "texture": "#texture"},
 				"east": {"uv": [2.5, 0.75, 3.25, 10.25], "texture": "#texture"},
@@ -100,9 +100,9 @@
 		},
 		{
 			"name": "back_bottom_crosspiece",
-			"from": [3, 2, 19.25],
-			"to": [14, 4, 19.75],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 0, 19]},
+			"from": [2.5, 2, 19.25],
+			"to": [13.5, 4, 19.75],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [7.5, 0, 19]},
 			"faces": {
 				"north": {"uv": [5, 5.5, 6, 11], "rotation": 90, "texture": "#texture"},
 				"south": {"uv": [5, 0, 6, 5.5], "rotation": 90, "texture": "#texture"},
@@ -112,9 +112,9 @@
 		},
 		{
 			"name": "seat_side_rail",
-			"from": [13, 12, 3.75],
-			"to": [14, 13.5, 14.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 4]},
+			"from": [12.5, 12, 3.75],
+			"to": [13.5, 13.5, 14.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, 4]},
 			"faces": {
 				"north": {"uv": [7.75, 5.25, 8.5, 5.75], "rotation": 90, "texture": "#texture"},
 				"east": {"uv": [7.75, 11, 8.5, 5.75], "rotation": 90, "texture": "#texture"},
@@ -126,9 +126,9 @@
 		},
 		{
 			"name": "seat_side_rail",
-			"from": [3, 12, 3.75],
-			"to": [4, 13.5, 14.25],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 4]},
+			"from": [2.5, 12, 3.75],
+			"to": [3.5, 13.5, 14.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, 4]},
 			"faces": {
 				"north": {"uv": [7.75, 5.25, 8.5, 5.75], "rotation": 90, "texture": "#texture"},
 				"east": {"uv": [7.75, 0, 8.5, 5.25], "rotation": 90, "texture": "#texture"},
@@ -140,9 +140,9 @@
 		},
 		{
 			"name": "seat_frame",
-			"from": [3, 13.5, 9.25],
-			"to": [14, 14, 11.75],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 4]},
+			"from": [2.5, 13.5, 9.25],
+			"to": [13.5, 14, 11.75],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, 4]},
 			"faces": {
 				"north": {"uv": [6.25, 1.25, 6.5, 6.75], "rotation": 90, "texture": "#texture"},
 				"east": {"uv": [6.25, 0, 6.5, 1.25], "rotation": 90, "texture": "#texture"},
@@ -154,9 +154,9 @@
 		},
 		{
 			"name": "seat_frame",
-			"from": [3, 13.5, 6.25],
-			"to": [14, 14, 8.75],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 4]},
+			"from": [2.5, 13.5, 6.25],
+			"to": [13.5, 14, 8.75],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, 4]},
 			"faces": {
 				"north": {"uv": [6.25, 6.75, 6.5, 1.25], "rotation": 90, "texture": "#texture"},
 				"east": {"uv": [6.25, 0, 6.5, 1.25], "rotation": 90, "texture": "#texture"},
@@ -168,9 +168,9 @@
 		},
 		{
 			"name": "seat_frame",
-			"from": [3, 13.5, 3.25],
-			"to": [14, 14, 5.75],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 4]},
+			"from": [2.5, 13.5, 3.25],
+			"to": [13.5, 14, 5.75],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-0.5, 0, 4]},
 			"faces": {
 				"north": {"uv": [6.25, 1.25, 6.5, 6.75], "rotation": 90, "texture": "#texture"},
 				"east": {"uv": [6.25, 0, 6.5, 1.25], "rotation": 90, "texture": "#texture"},

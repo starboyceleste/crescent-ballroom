@@ -43,6 +43,7 @@ public class CesnaChairBlock extends AbstractSeatableBlock {
         };
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction facing = state.get(FACING);
         return switch (facing) {

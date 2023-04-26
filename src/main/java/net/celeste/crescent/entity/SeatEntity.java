@@ -51,6 +51,7 @@ public class SeatEntity extends MobEntity {
         return super.interactAt(player, hitPos, hand);
     }
 
+
     @Override
     public Vec3d updatePassengerForDismount(LivingEntity passenger) {
         Direction direction = this.getMovementDirection();
