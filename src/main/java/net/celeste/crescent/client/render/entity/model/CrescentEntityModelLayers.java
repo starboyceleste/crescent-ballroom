@@ -17,6 +17,5 @@ public class CrescentEntityModelLayers {
         EntityRendererRegistry.register(CrescentEntityType.MICROPHONE_STAND, MicrophoneStandEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MICROPHONE_STAND, MicrophoneStandEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(CrescentEntityType.SEAT, SeatEntityRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(SEAT, SeatEntityModel::getTexturedModelData);
     }
 }
