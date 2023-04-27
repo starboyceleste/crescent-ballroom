@@ -3,7 +3,9 @@ package net.celeste.crescent.data;
 import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
 
 public class CrescentItemModelGenerator extends FabricModelProvider {
     public CrescentItemModelGenerator(FabricDataOutput output) {

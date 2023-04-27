@@ -11,7 +11,6 @@ import net.minecraft.util.Identifier;
 
 public class CrescentEntityModelLayers {
     public static final EntityModelLayer MICROPHONE_STAND = new EntityModelLayer(new Identifier(Crescent.MOD_ID, "microphone_stand"), "main");
-    public static final EntityModelLayer SEAT = new EntityModelLayer(new Identifier(Crescent.MOD_ID, "seat"), "main");
 
     public static void init() {
         EntityRendererRegistry.register(CrescentEntityType.MICROPHONE_STAND, MicrophoneStandEntityRenderer::new);

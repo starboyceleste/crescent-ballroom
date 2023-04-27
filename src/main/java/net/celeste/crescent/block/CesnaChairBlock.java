@@ -8,7 +8,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 
-@SuppressWarnings("deprecation")
 public class CesnaChairBlock extends ChairBlock {
     protected static final VoxelShape OUTLINE_WEST = VoxelShapes.cuboid(0.35f, 0.0f, 0.1f, 1.15f, 1.5f, 0.9f);
     protected static final VoxelShape OUTLINE_SOUTH = VoxelShapes.cuboid(0.1f, 0.0f, -0.15f, 0.9f, 1.5f, 0.65f);
