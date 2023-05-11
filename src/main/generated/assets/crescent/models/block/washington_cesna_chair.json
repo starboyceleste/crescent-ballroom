@@ -1,0 +1,6 @@
+{
+  "parent": "crescent:block/template_cesna",
+  "textures": {
+    "texture": "crescent:block/washington_cesna_chair"
+  }
+}

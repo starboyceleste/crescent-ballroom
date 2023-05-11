@@ -23,6 +23,10 @@ public class CrescentEnglishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE, "Voxel-Voice VE20 Microphone");
         translationBuilder.add(CrescentItems.MICROPHONE_STAND, "Microphone Stand with Boom Arm");
         translationBuilder.add(CrescentBlocks.FLORENCE_CESNA_CHAIR, "Florence Cesna Chair");
+        translationBuilder.add(CrescentBlocks.CAMBRIDGE_CESNA_CHAIR, "Cambridge Cesna Chair");
+        translationBuilder.add(CrescentBlocks.BLUE_SCREEN, "Blue Screen Block");
+        translationBuilder.add(CrescentBlocks.GREEN_SCREEN, "Green Screen Block");
+        translationBuilder.add(CrescentBlocks.RED_SCREEN, "Red Screen Block");
         translationBuilder.add(CrescentItemGroups.CRESCENT, "Crescent");
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -94,8 +93,6 @@ public abstract class AbstractSeatableBlock extends AbstractFurnitureBlock{
     @Override
     public void onLandedUpon(World world, BlockState state, BlockPos pos, Entity entity, float fallDistance) {
         entity.handleFallDamage(fallDistance, 0.2f, DamageSource.FALL);
-
-        world.addParticle(ParticleTypes.CRIT, pos.getX(), pos.getY(), pos.getZ(), 0.0, 1.0, 0.0);
 
         if (fallDistance > 3.0f && (entity instanceof PlayerEntity)) {
             sitEntity(world, pos, state, entity);

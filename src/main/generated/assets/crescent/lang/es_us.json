@@ -1,5 +1,9 @@
 {
+  "block.crescent.blue_screen": "Blue Screen Block",
+  "block.crescent.cambridge_cesna_chair": "Cambridge Cesna Chair",
   "block.crescent.florence_cesna_chair": "Florencia Cesna Silla",
+  "block.crescent.green_screen": "Green Screen Block",
+  "block.crescent.red_screen": "Red Screen Block",
   "item.crescent.blur_bm57_microphone": "Blur BM57 Micrófono",
   "item.crescent.blur_bm58_microphone": "Blur BM58 Micrófono",
   "item.crescent.blur_bm7b_microphone": "Blur BM7B Micrófono",

@@ -1,0 +1,6 @@
+{
+  "parent": "crescent:block/cube_display_all",
+  "textures": {
+    "all": "crescent:block/blue_screen"
+  }
+}

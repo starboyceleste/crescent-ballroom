@@ -20,7 +20,9 @@ public class CrescentItemGroups extends ItemGroups {
                 entries.add(CrescentItems.TRUMANN_U_98_MICROPHONE);
                 entries.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE);
                 entries.add(CrescentItems.MICROPHONE_STAND);
+                entries.add(CrescentItems.CAMBRIDGE_CESNA_CHAIR);
                 entries.add(CrescentItems.FLORENCE_CESNA_CHAIR);
+                entries.add(CrescentItems.WASHINGTON_CESNA_CHAIR);
                 entries.add(CrescentItems.BLUE_SCREEN);
                 entries.add(CrescentItems.GREEN_SCREEN);
                 entries.add(CrescentItems.RED_SCREEN);

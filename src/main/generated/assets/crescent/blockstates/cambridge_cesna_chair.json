@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "crescent:block/cambridge_cesna_chair",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "crescent:block/cambridge_cesna_chair"
+    },
+    "facing=south": {
+      "model": "crescent:block/cambridge_cesna_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "crescent:block/cambridge_cesna_chair",
+      "y": 270
+    }
+  }
+}
