@@ -6,8 +6,6 @@ import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-import java.nio.file.Path;
-
 public class CrescentSpanishLanguageProvider extends FabricLanguageProvider {
     public CrescentSpanishLanguageProvider(FabricDataOutput dataOutput) {
         super(dataOutput, "es_us");
@@ -26,12 +24,5 @@ public class CrescentSpanishLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(CrescentItems.MICROPHONE_STAND, "Soporte de brazo para micrófono");
         translationBuilder.add(CrescentBlocks.FLORENCE_CESNA_CHAIR, "Florencia Cesna Silla");
         translationBuilder.add(CrescentItemGroups.CRESCENT, "Crescent");
-
-        try {
-            Path existingFilePath = dataOutput.getModContainer().findPath("assets/crescent/lang/es_us.existing.json").get();
-            translationBuilder.add(existingFilePath);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to add existing language file!", e);
-        }
     }
 }

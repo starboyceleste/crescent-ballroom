@@ -21,6 +21,7 @@ public class CrescentItems {
     public static final Item VOXEL_VOICE_VE20_MICROPHONE = CrescentItems.register("voxel_voice_ve20_microphone", new Item(new FabricItemSettings()));
     public static final Item MICROPHONE_STAND = CrescentItems.register("microphone_stand", new MicrophoneStandItem(new FabricItemSettings()));
     public static final Item FLORENCE_CESNA_CHAIR = CrescentItems.register(CrescentBlocks.FLORENCE_CESNA_CHAIR);
+    public static final Item GREEN_SCREEN = CrescentItems.register(CrescentBlocks.GREEN_SCREEN);
 
     private static Item register(Block block) {
         return CrescentItems.register(new BlockItem(block, new Item.Settings()));

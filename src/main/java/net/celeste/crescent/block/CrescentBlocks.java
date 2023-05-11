@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class CrescentBlocks {
     public static final Block FLORENCE_CESNA_CHAIR = register("florence_cesna_chair", new CesnaChairBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OAK_TAN).strength(3.0f).sounds(BlockSoundGroup.WOOD)));
+    public static final Block GREEN_SCREEN = register("green_screen", new CesnaChairBlock(FabricBlockSettings.of(Material.WOOD, MapColor.OAK_TAN).strength(3.0f).sounds(BlockSoundGroup.WOOD)));
 
     private static Block register(String id, Block block) {
         return Registry.register(Registries.BLOCK, new Identifier(Crescent.MOD_ID, id), block);
