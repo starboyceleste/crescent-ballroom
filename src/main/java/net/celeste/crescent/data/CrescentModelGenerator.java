@@ -14,7 +14,9 @@ public class CrescentModelGenerator extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.FLORENCE_CESNA_CHAIR, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.FLORENCE_CESNA_CHAIR))).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
-        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.FLORENCE_CESNA_CHAIR, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.FLORENCE_CESNA_CHAIR))).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.BLUE_SCREEN, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.BLUE_SCREEN))));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.GREEN_SCREEN, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.GREEN_SCREEN))));
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.RED_SCREEN, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.RED_SCREEN))));
     }
 
     @Override

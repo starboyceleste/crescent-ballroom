@@ -21,6 +21,9 @@ public class CrescentItemGroups extends ItemGroups {
                 entries.add(CrescentItems.VOXEL_VOICE_VE20_MICROPHONE);
                 entries.add(CrescentItems.MICROPHONE_STAND);
                 entries.add(CrescentItems.FLORENCE_CESNA_CHAIR);
+                entries.add(CrescentItems.BLUE_SCREEN);
+                entries.add(CrescentItems.GREEN_SCREEN);
+                entries.add(CrescentItems.RED_SCREEN);
             }).build();
 
     public static void init() {
