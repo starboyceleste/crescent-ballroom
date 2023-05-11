@@ -1,19 +1,20 @@
 package net.celeste.crescent.data;
 
+import net.celeste.crescent.block.CrescentBlocks;
 import net.celeste.crescent.item.CrescentItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
+import net.minecraft.data.client.*;
 
-public class CrescentItemModelGenerator extends FabricModelProvider {
-    public CrescentItemModelGenerator(FabricDataOutput output) {
+public class CrescentModelGenerator extends FabricModelProvider {
+    public CrescentModelGenerator(FabricDataOutput output) {
         super(output);
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {}
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(CrescentBlocks.FLORENCE_CESNA_CHAIR, BlockStateVariant.create().put(VariantSettings.MODEL, ModelIds.getBlockModelId(CrescentBlocks.FLORENCE_CESNA_CHAIR))).coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+    }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
